@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <meta name="description" content="Chat-GD: The AI Operating System for Founders and Creators.">
+    
+    <!-- SOCIAL MEDIA PREVIEW CARDS (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chat-GD | The AI Operating System">
+    <meta property="og:description" content="Unlock AI the simple way. No prompting skills needed. Access 24 expert personas instantly.">
+    <!-- Replace 'preview.jpg' with your actual image file name -->
+    <meta property="og:image" content="preview.jpg"> 
+
     <title>Chat-GD | The AI Operating System</title>
     
+    <!-- FAVICON PLACEHOLDERS (Add your .png files to root folder) -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
     <link rel="stylesheet" href="style.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,7 +27,9 @@
         
         <nav>
             <div class="logo">
-                <img src="logo.png" alt="Chat-GD Logo" class="logo-img">
+                <a href="index.html">
+                    <img src="logo.png" alt="Chat-GD Logo" class="logo-img">
+                </a>
             </div>
             
             <div class="flex">
@@ -25,18 +37,18 @@
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
                 </button>
 
-                <div class="hamburger" id="hamburger">
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
 
             <div class="nav-links" id="navLinks">
                 <a href="#features" onclick="closeMenu()">Features</a>
                 <a href="#pricing" onclick="closeMenu()">Free</a>
                 <a href="#personas" onclick="closeMenu()">Personas</a>
-                <a href="personas.html" style="color:var(--neon);">All 24 Personas</a>
+                <a href="personas.html" class="text-neon">All 24 Personas</a>
                 <a href="#tools" onclick="closeMenu()">Tool Lab</a>
                 <a href="#contact" onclick="closeMenu()">Contact</a> 
             </div>
@@ -52,11 +64,13 @@
                     <div class="decor-circle"></div>
                 </div>
 
-                <div class="text-neon uppercase" style="margin-bottom: 20px; display:inline-flex; align-items:center; gap:10px; border:1px solid var(--neon); padding:8px 20px; border-radius:30px; font-weight:800; letter-spacing:1px; box-shadow:0 0 10px var(--neon-dim);">
+                <div class="system-badge text-neon uppercase">
                     <i class="fa-solid fa-circle-notch fa-spin"></i> SYSTEM ONLINE v3.0
                 </div>
+                
                 <h1 class="glow-text">Unlock AI <br>the Simple <br>Way.</h1>
-                <p>Stop struggling with complicated tools. Choose a pre-trained persona, pick a toolset, and get work done. Fast. Easy. Beginner-friendly.</p>
+                
+                <p>Stop struggling with complicated tools. Choose a pre-trained persona, pick a toolset, and get work done. Fast. Easy. Beginner-friendly. Start building your empire today.</p>
                 
                 <ul class="hero-benefits">
                     <li><i class="fa-solid fa-check"></i> No API Keys Needed</li>
@@ -65,44 +79,48 @@
                 </ul>
 
                 <div class="hero-btns">
-                    <a href="#pricing"><button class="btn-hero" style="background:var(--neon); color:black; box-shadow:0 0 30px var(--neon-glow);">Start For Free</button></a>
+                    <a href="#pricing"><button class="btn-hero hero-btn-glow">Start For Free</button></a>
                     <a href="#features"><button class="btn-hero">How It Works</button></a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-num">5k+</span>
-                        <span class="stat-label">Active Users</span>
+                        <span class="stat-num">10k+</span>
+                        <span class="stat-label">Hours Saved</span>
                     </div>
+                    
                     <div class="stat-divider"></div>
+                    
                     <div class="stat-item">
                         <span class="stat-num">24</span>
                         <span class="stat-label">Expert Personas</span>
                     </div>
+                    
                     <div class="stat-divider"></div>
-                    <div class="stat-item" style="flex-direction: row; align-items: center; gap: 10px;">
+                    
+                    <div class="stat-item flex" style="gap:10px;">
                         <i class="fa-solid fa-circle-check text-neon" style="font-size: 1.5rem;"></i>
-                        <span class="stat-label" style="margin-top:0;">System<br>Stable</span>
+                        <span class="stat-label mt-20" style="margin-top:0;">System<br>Stable</span>
                     </div>
                 </div>
             </div>
 
             <div class="node-visual small" id="nexusWrapper">
-                
                 <div class="orbit-ring" id="nexusContainer">
                     <div class="energy-arc arc1"></div>
                     <div class="energy-arc arc2"></div>
                     <div class="energy-arc arc3"></div>
                     <div class="energy-arc arc4"></div>
 
-                    <div class="orbit-node n1"><i class="fa-solid fa-users"></i><br>Personas</div>
-                    <div class="orbit-node n2"><i class="fa-solid fa-book"></i><br>Learn AI</div>
-                    <div class="orbit-node n3"><i class="fa-solid fa-layer-group"></i><br>Brand Kits</div>
-                    <div class="orbit-node n4"><i class="fa-solid fa-cart-shopping"></i><br>Shop</div>
-                    <div class="orbit-node n5"><i class="fa-solid fa-wrench"></i><br>Pro Tools</div>
-                    <div class="orbit-node n6"><i class="fa-solid fa-code"></i><br>Dev Tools</div>
-                    <div class="orbit-node n7"><i class="fa-solid fa-leaf"></i><br>Green OS</div>
-                    <div class="orbit-node n8"><i class="fa-solid fa-database"></i><br>Library</div>
+                    <!-- void(0) improves iOS touch handling -->
+                    <div class="orbit-node n1" onclick="void(0)"><i class="fa-solid fa-users"></i><br>Personas</div>
+                    <div class="orbit-node n2" onclick="void(0)"><i class="fa-solid fa-book"></i><br>Learn AI</div>
+                    <div class="orbit-node n3" onclick="void(0)"><i class="fa-solid fa-layer-group"></i><br>Brand Kits</div>
+                    <div class="orbit-node n4" onclick="void(0)"><i class="fa-solid fa-cart-shopping"></i><br>Shop</div>
+                    <div class="orbit-node n5" onclick="void(0)"><i class="fa-solid fa-wrench"></i><br>Pro Tools</div>
+                    <div class="orbit-node n6" onclick="void(0)"><i class="fa-solid fa-code"></i><br>Dev Tools</div>
+                    <div class="orbit-node n7" onclick="void(0)"><i class="fa-solid fa-leaf"></i><br>Green OS</div>
+                    <div class="orbit-node n8" onclick="void(0)"><i class="fa-solid fa-database"></i><br>Library</div>
                 </div>
                 
                 <div class="center-node">
@@ -129,20 +147,20 @@
             <div class="grid-2">
                 <div>
                     <h2 class="section-title">The Old Way is <span class="text-neon glow-text">Broken</span>.</h2>
-                    <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:30px; max-width: 450px;">
+                    <p class="text-muted mb-30" style="font-size:1.1rem; max-width: 450px;">
                         Most people are overwhelmed by standard AI. They stare at a blank prompt box and get generic results. It's frustrating and time-consuming.
                     </p>
-                    <ul style="list-style:none; color:var(--text-muted); font-size:1.1rem; display:flex; flex-direction:column; gap:15px;">
-                        <li style="display:flex; align-items:center;"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Requires complex "prompt engineering"</li>
-                        <li style="display:flex; align-items:center;"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Gives generic, robotic answers</li>
-                        <li style="display:flex; align-items:center;"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Steep learning curve for beginners</li>
+                    <ul class="text-muted" style="list-style:none; font-size:1.1rem; display:flex; flex-direction:column; gap:15px;">
+                        <li class="flex"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Requires complex "prompt engineering"</li>
+                        <li class="flex"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Gives generic, robotic answers</li>
+                        <li class="flex"><i class="fa-solid fa-xmark" style="color:#ff3333; margin-right:15px; font-size:1.3rem;"></i> Steep learning curve for beginners</li>
                     </ul>
                 </div>
-                <div class="card" style="border-width: 2px; box-shadow: 0 0 40px rgba(57,255,20,0.1);">
-                    <i class="fa-solid fa-circle-check card-icon" style="font-size:4rem;"></i>
+                <div class="card featured-glow">
+                    <i class="fa-solid fa-circle-check card-icon"></i>
                     <h3>The Chat-GD Way</h3>
-                    <p style="font-size:1.1rem; margin-bottom:30px;">We pre-program the expertise for you. Don't learn to code prompts. Just select "The Strategist" persona and start solving big problems instantly.</p>
-                    <a href="#pricing"><button class="btn-nav" style="width:100%; padding:15px; font-size:1rem;">Switch to Chat-GD</button></a>
+                    <p class="mb-30" style="font-size:1.1rem;">We pre-program the expertise for you. Don't learn to code prompts. Just select "The Strategist" persona and start solving big problems instantly.</p>
+                    <a href="#pricing"><button class="btn-nav w-full p-15" style="font-size:1rem;">Switch to Chat-GD</button></a>
                 </div>
             </div>
         </section>
@@ -151,7 +169,7 @@
             <div class="section-header text-center">
                 <div class="text-neon uppercase mb-40">The Roster</div>
                 <h2 class="section-title glow-text">Meet Your New AI Team</h2>
-                <p style="color:var(--text-muted); max-width:600px; margin: 20px auto 0;">Why hire expensive consultants when you can have a full suite of experts available 24/7?</p>
+                <p class="text-muted mt-20" style="max-width:600px; margin-left: auto; margin-right: auto;">Why hire expensive consultants when you can have a full suite of experts available 24/7?</p>
             </div>
             
             <div class="persona-viewer">
@@ -172,12 +190,18 @@
                 </div>
                 
                 <div class="persona-display" id="persona-content">
-                    <i class="fa-solid fa-user-astronaut" style="font-size:4rem; color:var(--neon); margin-bottom:25px; filter:drop-shadow(0 0 15px var(--neon-glow));"></i>
-                    <h3 style="color:var(--text-main); font-size:2.5rem; margin-bottom:10px; font-weight:800;">The Sensei</h3>
-                    <p class="text-neon uppercase" style="margin-bottom:25px; letter-spacing:2px; font-weight:800;">Your Strategic Mentor</p>
-                    <p style="color:var(--text-muted); font-size:1.1rem; line-height: 1.7; max-width: 90%;">
-                        🧠 <strong>The Big Brain.</strong> I help you see the map when others see chaos. <br><br>"I don't just give answers; I give you the winning move."
+                    <i class="persona-icon fa-solid fa-user-astronaut"></i>
+                    <h3 class="persona-title">The Sensei</h3>
+                    <p class="persona-role">Your Strategic Mentor</p>
+                    
+                    <p class="persona-desc">
+                        🧠 <strong>The Big Brain.</strong> I help you see the big picture. Use me for business planning, negotiation tactics, and building long-term career roadmaps. <br><br>
+                        ♟️ <em>Business Planning</em> (Strategy) <br>
+                        🤝 <em>Negotiation Tactics</em> (The art of the deal) <br>
+                        🗺️ <em>Career Roadmaps</em> (Building your empire). <br><br>
+                        "I don't just give answers; I give strategy."
                     </p>
+                    
                     <button class="btn-nav" style="margin-top:40px; align-self:flex-start; padding:15px 30px;">Chat with Sensei &rarr;</button>
                 </div>
             </div>
@@ -210,13 +234,13 @@
         <section id="pricing" class="section-pad scroll-reveal">
             <div class="text-center mb-40" style="margin-bottom: 80px;">
                 <h2 class="section-title glow-text">Simple, Transparent Pricing</h2>
-                <p style="color:var(--text-muted); font-size:1.2rem; margin-top:20px;">Stop paying thousands for traditional agencies.</p>
+                <p class="text-muted mt-20" style="font-size:1.2rem;">Stop paying thousands for traditional agencies.</p>
             </div>
             <div class="grid-3 pricing-grid">
                 <div class="price-card">
                     <h3>Starter</h3>
                     <div class="price">$0<span>/mo</span></div>
-                    <p style="color:var(--text-muted); margin-bottom:30px;">For hobbyists exploring AI.</p>
+                    <p class="text-muted mb-30">For hobbyists exploring AI.</p>
                     <ul class="price-features">
                         <li>Access to 3 Core Personas</li>
                         <li><strong>Daily Power-Ups</strong> (Refills 24h)</li>
@@ -225,13 +249,13 @@
                         <li style="opacity:0.5;">No Commercial Rights</li>
                         <li style="opacity:0.5;">Community Support Only</li>
                     </ul>
-                    <button class="btn-nav" style="width:100%; padding:15px;">Get Started Free</button>
+                    <button class="btn-nav w-full p-15">Get Started Free</button>
                 </div>
                 <div class="price-card featured">
                     <div class="popular-badge">LIMITED OFFER</div>
                     <h3 style="font-size:1.8rem;">Pro Member</h3>
                     <div class="price text-neon">$8<span>/mo</span></div>
-                    <p style="color:var(--text-muted); margin-bottom:30px;">For professionals and creators.</p>
+                    <p class="text-muted mb-30">For professionals and creators.</p>
                     <ul class="price-features">
                         <li><strong>Unlimited</strong> Access to All 24 Personas</li>
                         <li><strong>Unlimited</strong> High-Speed Chats</li>
@@ -239,12 +263,12 @@
                         <li><strong>Commercial Usage Rights</strong></li>
                         <li>Priority Server Access (Zero Wait)</li>
                     </ul>
-                    <button class="btn-hero" style="background:var(--neon); color:black; width:100%; padding:18px; font-size:1.1rem; box-shadow: 0 0 30px var(--neon-glow);">Go Pro Now</button>
+                    <button class="btn-hero w-full hero-btn-glow">Go Pro Now</button>
                 </div>
                 <div class="price-card">
                     <h3>Team</h3>
                     <div class="price">$29<span>/mo</span></div>
-                    <p style="color:var(--text-muted); margin-bottom:30px;">For small businesses and startups.</p>
+                    <p class="text-muted mb-30">For small businesses and startups.</p>
                     <ul class="price-features">
                         <li>Everything in Pro</li>
                         <li>5 Team Member Seats</li>
@@ -252,7 +276,7 @@
                         <li><strong>Admin Analytics Dashboard</strong></li>
                         <li>Dedicated Success Manager</li>
                     </ul>
-                    <button class="btn-nav" style="width:100%; padding:15px;">Contact GD</button>
+                    <button class="btn-nav w-full p-15">Contact GD</button>
                 </div>
             </div>
         </section>
@@ -261,7 +285,7 @@
             <div class="container">
                 <div class="text-center mb-40">
                     <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p style="color:var(--text-muted);">Common questions about the Chat-GD ecosystem.</p>
+                    <p class="text-muted">Common questions about the Chat-GD ecosystem.</p>
                 </div>
                 
                 <div class="faq-grid">
@@ -308,7 +332,7 @@
         <section class="section-pad ecosystem-section scroll-reveal">
             <div class="text-center">
                 <h2 class="section-title">The Complete <span class="text-neon">Ecosystem</span></h2>
-                <p style="color:var(--text-muted);">Everything you need to build, launch, and scale.</p>
+                <p class="text-muted">Everything you need to build, launch, and scale.</p>
             </div>
             <div class="ecosystem-grid">
                 <div class="eco-item">
@@ -337,20 +361,20 @@
         <section class="section-pad text-center scroll-reveal" style="padding-bottom: 150px;">
             <h2 class="section-title glow-text" style="font-size:4rem; line-height:1.1;">Ready to Upgrade <br> Your Brain?</h2>
             <div class="flex" style="justify-content:center; gap:20px; flex-wrap:wrap; margin-top:40px;">
-                <a href="#pricing"><button class="btn-hero" style="background:var(--neon); color:black; font-size:1.2rem; padding:20px 50px; box-shadow: 0 0 50px var(--neon-glow);">Get Instant Access</button></a>
+                <a href="#pricing"><button class="btn-hero hero-btn-glow" style="font-size:1.2rem; padding:20px 50px;">Get Instant Access</button></a>
             </div>
         </section>
 
         <section id="contact" class="section-pad scroll-reveal">
             <div class="text-center mb-40">
                 <h2 class="section-title">Get in Touch</h2>
-                <p style="color:var(--text-muted);">Ready to scale? Let's talk.</p>
+                <p class="text-muted">Ready to scale? Let's talk.</p>
             </div>
             
             <div class="grid-2" style="align-items: flex-start;">
                 <div>
                     <h3 style="color:var(--text-main); font-size:2rem; margin-bottom:20px;">Contact Information</h3>
-                    <p style="color:var(--text-muted); margin-bottom:40px; font-size:1.1rem;">
+                    <p class="text-muted mb-40" style="font-size:1.1rem;">
                         Have a question about our enterprise plans or need a custom integration? Fill out the form and our team will get back to you within 24 hours.
                     </p>
                     
@@ -361,7 +385,7 @@
                             </div>
                             <div>
                                 <h4 style="color:var(--text-main); margin-bottom:5px;">Email Us</h4>
-                                <p style="color:var(--text-muted);">support@chat-gd.ai</p>
+                                <p class="text-muted">support@chat-gd.ai</p>
                             </div>
                         </div>
                         
@@ -371,7 +395,7 @@
                             </div>
                             <div>
                                 <h4 style="color:var(--text-main); margin-bottom:5px;">HQ Location</h4>
-                                <p style="color:var(--text-muted);">101 Tech Plaza, Silicon Valley, CA</p>
+                                <p class="text-muted">101 Tech Plaza, Silicon Valley, CA</p>
                             </div>
                         </div>
 
@@ -381,7 +405,7 @@
                             </div>
                             <div>
                                 <h4 style="color:var(--text-main); margin-bottom:5px;">Community</h4>
-                                <p style="color:var(--text-muted);">Join our Discord Server</p>
+                                <p class="text-muted">Join our Discord Server</p>
                             </div>
                         </div>
                     </div>
@@ -399,7 +423,7 @@
                                 <input type="email" placeholder="john@example.com">
                             </div>
                         </div>
-                        <div class="form-group" style="margin-bottom:20px;">
+                        <div class="form-group mb-20">
                             <label>Subject</label>
                             <select>
                                 <option>General Inquiry</option>
@@ -408,11 +432,11 @@
                                 <option>Partnership</option>
                             </select>
                         </div>
-                        <div class="form-group" style="margin-bottom:30px;">
+                        <div class="form-group mb-30">
                             <label>Message</label>
                             <textarea rows="5" placeholder="How can we help you?"></textarea>
                         </div>
-                        <button type="button" class="btn-hero" style="background:var(--neon); color:black; width:100%; font-weight:800;">Send Message</button>
+                        <button type="submit" class="btn-hero w-full" style="background:var(--neon); color:black; font-weight:800;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -422,7 +446,9 @@
             <div class="grid-2">
                 <div>
                     <div class="logo" style="margin-bottom:25px;">
-                        <img src="logo.png" alt="Chat-GD Logo" class="logo-img">
+                        <a href="index.html" style="text-decoration:none; display:flex; align-items:center;">
+                            <img src="logo.png" alt="Chat-GD Logo" class="logo-img">
+                        </a>
                         <span style="font-weight:800; font-size:1.5rem; color:var(--neon); margin-left:15px; letter-spacing:-1px;">CHAT-GD</span>
                     </div>
                     <p style="max-width: 400px; margin-bottom: 30px;">The AI Operating System designed to replace expensive human consultants with instant, expert-level guidance.</p>
@@ -452,7 +478,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align:center; margin-top:80px; border-top:1px solid rgba(57,255,20,0.2); padding-top:30px; color:#555; font-size:0.9rem;">
+            <div class="text-center" style="margin-top:80px; border-top:1px solid rgba(57,255,20,0.2); padding-top:30px; color:#555; font-size:0.9rem;">
                 &copy; 2025 Chat-GD Concepts. All rights reserved.
             </div>
         </footer>
@@ -467,7 +493,7 @@
             </div>
             <div style="flex:1; padding:20px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#888;">
                 <p>Have questions? Chat with our sales team.</p>
-                <button class="btn-nav" style="margin-top:20px; width:100%;">Start Chat</button>
+                <button class="btn-nav w-full mt-20">Start Chat</button>
             </div>
         </div>
 

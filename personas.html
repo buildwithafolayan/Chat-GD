@@ -4,44 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Personas | Chat-GD</title>
+    
+    <!-- SOCIAL MEDIA PREVIEW CARDS (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chat-GD | All Personas">
+    <meta property="og:description" content="Meet the full roster of 24 AI Experts.">
+    <meta property="og:image" content="preview.jpg"> 
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Specific Override for the Full Grid Page */
-        .persona-grid-full {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .persona-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 15px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .persona-card:hover {
-            border-color: var(--neon);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.1);
-        }
-        .p-icon-lg {
-            font-size: 3rem;
-            color: var(--neon);
-            margin-bottom: 20px;
-        }
-        
-        /* Mobile adjustment for this specific page */
-        @media (max-width: 768px) {
-            .persona-grid-full { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
 <body>
 
@@ -54,11 +26,15 @@
             </div>
             
             <div class="flex">
-                 <div class="hamburger" id="hamburger">
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+
+                 <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
 
             <div class="nav-links" id="navLinks">
@@ -71,97 +47,96 @@
             <div class="text-center">
                 <div class="text-neon uppercase mb-40">The Full Roster</div>
                 <h1 class="glow-text" style="font-size: 3rem;">All 24 Expert Personas</h1>
-                <p style="color:var(--text-muted); max-width: 600px; margin: 20px auto;">Every subscription gives you instant access to this entire board of directors.</p>
+                <p class="text-muted" style="max-width: 600px; margin: 20px auto;">Every subscription gives you instant access to this entire board of directors.</p>
             </div>
 
             <div class="persona-grid-full">
+                <!-- Row 1 -->
                 <div class="persona-card">
                     <i class="fa-solid fa-user-astronaut p-icon-lg"></i>
                     <h3>The Sensei</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Strategic Mentor</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Expert in business chess, long-term planning, and high-stakes negotiation.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Strategic Mentor</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Expert in business chess, long-term planning, and high-stakes negotiation.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-solid fa-chess-queen p-icon-lg"></i>
                     <h3>The Executive</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Operations Lead</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Optimizes workflows, manages teams, and handles crisis management.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Operations Lead</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Optimizes workflows, manages teams, and handles crisis management.</p>
                 </div>
-
                 <div class="persona-card">
                     <i class="fa-solid fa-lightbulb p-icon-lg"></i>
                     <h3>The Visionary</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Creative Muse</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Generates wild ideas, viral marketing angles, and breaks writer's block.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Creative Muse</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Generates wild ideas, viral marketing angles, and breaks writer's block.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-solid fa-pen-fancy p-icon-lg"></i>
                     <h3>The Scribe</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Copy Chief</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Writes emails that get opened and landing pages that convert.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Copy Chief</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Writes emails that get opened and landing pages that convert.</p>
                 </div>
+                <!-- Row 2 -->
                 <div class="persona-card">
                     <i class="fa-solid fa-palette p-icon-lg"></i>
                     <h3>The Artist</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Design Director</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Critiques UI/UX, suggests color palettes, and generates image prompts.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Design Director</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Critiques UI/UX, suggests color palettes, and generates image prompts.</p>
                 </div>
-
                 <div class="persona-card">
                     <i class="fa-solid fa-code p-icon-lg"></i>
                     <h3>The Architect</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Tech Expert</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Builds scalable systems, designs databases, and reviews complex code.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Tech Expert</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Builds scalable systems, designs databases, and reviews complex code.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-solid fa-bug p-icon-lg"></i>
                     <h3>The Debugger</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Code Fixer</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Spots errors instantly and refactors messy code into clean logic.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Code Fixer</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Spots errors instantly and refactors messy code into clean logic.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-solid fa-shield-halved p-icon-lg"></i>
                     <h3>The Sentinel</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Cyber Security</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Audits smart contracts and advises on data privacy best practices.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Cyber Security</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Audits smart contracts and advises on data privacy best practices.</p>
                 </div>
-
+                <!-- Row 3 -->
                 <div class="persona-card">
                     <i class="fa-solid fa-chart-line p-icon-lg"></i>
                     <h3>The Growth Hacker</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Marketing Lead</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Finds cheap traffic sources and optimizes conversion funnels.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Marketing Lead</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Finds cheap traffic sources and optimizes conversion funnels.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-brands fa-tiktok p-icon-lg"></i>
                     <h3>The Influencer</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Social Media</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Drafts tweets, scripts TikToks, and understands algorithm trends.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Social Media</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Drafts tweets, scripts TikToks, and understands algorithm trends.</p>
                 </div>
-
                 <div class="persona-card">
                     <i class="fa-solid fa-heart p-icon-lg"></i>
                     <h3>The Guide</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Wellness Coach</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Helps manage stress, burnout, and personal relationships.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Wellness Coach</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Helps manage stress, burnout, and personal relationships.</p>
                 </div>
                 <div class="persona-card">
                     <i class="fa-solid fa-dumbbell p-icon-lg"></i>
                     <h3>The Trainer</h3>
-                    <p class="text-neon uppercase" style="font-size:0.7rem; margin-bottom:10px;">Fitness Coach</p>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Creates workout plans and nutrition guides for peak performance.</p>
+                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Fitness Coach</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Creates workout plans and nutrition guides for peak performance.</p>
                 </div>
-                
+                <!-- Row 4 -->
                 <div class="persona-card" style="opacity:0.5;">
                     <i class="fa-solid fa-lock p-icon-lg"></i>
                     <h3>+12 More</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Unlock the full roster inside the app.</p>
+                    <p class="text-muted" style="font-size:0.9rem;">Unlock the full roster inside the app.</p>
                 </div>
             </div>
         </section>
 
         <footer>
-            <div style="text-align:center; padding:30px; color:#555; font-size:0.9rem;">
+            <div class="text-center" style="padding:30px; color:#555; font-size:0.9rem;">
                 &copy; 2025 Chat-GD Concepts. All rights reserved.
             </div>
         </footer>
