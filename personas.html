@@ -16,6 +16,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- COMPACT NAV -->
         <nav>
             <div class="logo">
                 <a href="index.html" style="text-decoration:none; display:flex; align-items:center;">
@@ -40,100 +41,209 @@
 
         <section class="section-pad">
             <div class="text-center">
-                <div class="text-neon uppercase mb-40">The Full Roster</div>
-                <h1 class="glow-text" style="font-size: 3rem;">All 24 Expert Personas</h1>
-                <p class="text-muted" style="max-width: 600px; margin: 20px auto;">Every subscription gives you instant access to this entire board of directors.</p>
+                <div class="text-neon uppercase mb-20">The Full Roster</div>
+                <h1 class="glow-text" style="font-size: 3.5rem; line-height: 1.1;">All 24 Expert Personas</h1>
+                <p class="text-muted" style="max-width: 600px; margin: 20px auto;">Filter by expertise to find the perfect AI partner for your current challenge.</p>
             </div>
-            <div class="persona-grid-full">
-                <!-- ROW 1 -->
-                <div class="persona-card">
-                    <i class="fa-solid fa-user-astronaut p-icon-lg"></i>
-                    <h3>The Sensei</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Strategic Mentor</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Expert in business chess, long-term planning, and high-stakes negotiation.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-chess-queen p-icon-lg"></i>
-                    <h3>The Executive</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Operations Lead</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Optimizes workflows, manages teams, and handles crisis management.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-lightbulb p-icon-lg"></i>
-                    <h3>The Visionary</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Creative Muse</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Generates wild ideas, viral marketing angles, and breaks writer's block.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-pen-fancy p-icon-lg"></i>
-                    <h3>The Scribe</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Copy Chief</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Writes emails that get opened and landing pages that convert.</p>
-                </div>
-                <!-- ROW 2 -->
-                <div class="persona-card">
-                    <i class="fa-solid fa-palette p-icon-lg"></i>
-                    <h3>The Artist</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Design Director</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Critiques UI/UX, suggests color palettes, and generates image prompts.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-code p-icon-lg"></i>
-                    <h3>The Architect</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Tech Expert</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Builds scalable systems, designs databases, and reviews complex code.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-bug p-icon-lg"></i>
-                    <h3>The Debugger</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Code Fixer</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Spots errors instantly and refactors messy code into clean logic.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-shield-halved p-icon-lg"></i>
-                    <h3>The Sentinel</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Cyber Security</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Audits smart contracts and advises on data privacy best practices.</p>
-                </div>
-                <!-- ROW 3 -->
-                <div class="persona-card">
-                    <i class="fa-solid fa-chart-line p-icon-lg"></i>
-                    <h3>The Growth Hacker</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Marketing Lead</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Finds cheap traffic sources and optimizes conversion funnels.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-brands fa-tiktok p-icon-lg"></i>
-                    <h3>The Influencer</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Social Media</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Drafts tweets, scripts TikToks, and understands algorithm trends.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-heart p-icon-lg"></i>
-                    <h3>The Guide</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Wellness Coach</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Helps manage stress, burnout, and personal relationships.</p>
-                </div>
-                <div class="persona-card">
-                    <i class="fa-solid fa-dumbbell p-icon-lg"></i>
-                    <h3>The Trainer</h3>
-                    <p class="text-neon uppercase mb-20" style="font-size:0.7rem;">Fitness Coach</p>
-                    <p class="text-muted" style="font-size:0.9rem;">Creates workout plans and nutrition guides for peak performance.</p>
-                </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterPersonas('all')">All</button>
+                <button class="filter-btn" onclick="filterPersonas('strategy')">Strategy & Biz</button>
+                <button class="filter-btn" onclick="filterPersonas('tech')">Tech & Dev</button>
+                <button class="filter-btn" onclick="filterPersonas('creative')">Creative & Marketing</button>
+                <button class="filter-btn" onclick="filterPersonas('lifestyle')">Lifestyle</button>
+            </div>
+
+            <!-- INTERACTIVE GRID -->
+            <div class="persona-grid-full" id="personaGrid">
                 
-                <div class="persona-card" style="opacity:0.5;">
-                    <i class="fa-solid fa-lock p-icon-lg"></i>
-                    <h3>+12 More</h3>
-                    <p class="text-muted" style="font-size:0.9rem;">Unlock the full roster inside the app.</p>
+                <!-- STRATEGY CARDS -->
+                <div class="persona-card" data-category="strategy">
+                    <div class="p-card-header">
+                        <i class="fa-solid fa-user-astronaut p-icon-lg"></i>
+                        <div class="badge">Most Popular</div>
+                    </div>
+                    <h3>The Sensei</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Strategic Mentor</p>
+                    <p class="text-muted p-desc">Expert in business chess, long-term planning, and high-stakes negotiation. Your personal boardroom advisor.</p>
+                    <div class="p-tags">
+                        <span>Planning</span><span>Negotiation</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="strategy">
+                    <div class="p-card-header"><i class="fa-solid fa-chess-queen p-icon-lg"></i></div>
+                    <h3>The Executive</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Operations Lead</p>
+                    <p class="text-muted p-desc">Optimizes workflows, manages virtual teams, and handles crisis management with cold logic.</p>
+                    <div class="p-tags">
+                        <span>Ops</span><span>Management</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="strategy">
+                    <div class="p-card-header"><i class="fa-solid fa-briefcase p-icon-lg"></i></div>
+                    <h3>The Closer</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Sales Expert</p>
+                    <p class="text-muted p-desc">Drafts cold emails that convert, handles objections, and scripts high-ticket sales calls.</p>
+                    <div class="p-tags">
+                        <span>Sales</span><span>Cold Email</span>
+                    </div>
+                </div>
+
+                <!-- CREATIVE CARDS -->
+                <div class="persona-card" data-category="creative">
+                    <div class="p-card-header"><i class="fa-solid fa-lightbulb p-icon-lg"></i></div>
+                    <h3>The Visionary</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Creative Muse</p>
+                    <p class="text-muted p-desc">Generates wild ideas, viral marketing angles, and breaks writer's block instantly.</p>
+                    <div class="p-tags">
+                        <span>Ideation</span><span>Viral</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="creative">
+                    <div class="p-card-header"><i class="fa-solid fa-pen-fancy p-icon-lg"></i></div>
+                    <h3>The Scribe</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Copy Chief</p>
+                    <p class="text-muted p-desc">Writes world-class copy for landing pages, ads, and newsletters. Master of persuasion.</p>
+                    <div class="p-tags">
+                        <span>Copywriting</span><span>Blogs</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="creative">
+                    <div class="p-card-header"><i class="fa-solid fa-palette p-icon-lg"></i></div>
+                    <h3>The Artist</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Design Director</p>
+                    <p class="text-muted p-desc">Critiques UI/UX, suggests color palettes, and creates DALL-E 3 image prompts.</p>
+                    <div class="p-tags">
+                        <span>Design</span><span>UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="creative">
+                    <div class="p-card-header"><i class="fa-brands fa-tiktok p-icon-lg"></i></div>
+                    <h3>The Influencer</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Social Media</p>
+                    <p class="text-muted p-desc">Drafts tweets, scripts TikToks, and spots algorithm trends before they peak.</p>
+                    <div class="p-tags">
+                        <span>Social</span><span>Trends</span>
+                    </div>
+                </div>
+
+                <!-- TECH CARDS -->
+                <div class="persona-card" data-category="tech">
+                    <div class="p-card-header"><i class="fa-solid fa-code p-icon-lg"></i></div>
+                    <h3>The Architect</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Tech Expert</p>
+                    <p class="text-muted p-desc">Builds scalable systems, designs databases, and reviews complex code architecture.</p>
+                    <div class="p-tags">
+                        <span>System Design</span><span>DB</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="tech">
+                    <div class="p-card-header"><i class="fa-solid fa-bug p-icon-lg"></i></div>
+                    <h3>The Debugger</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Code Fixer</p>
+                    <p class="text-muted p-desc">Paste your error logs here. Spots bugs instantly and refactors messy code.</p>
+                    <div class="p-tags">
+                        <span>Python</span><span>JS</span><span>Fixes</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="tech">
+                    <div class="p-card-header"><i class="fa-solid fa-shield-halved p-icon-lg"></i></div>
+                    <h3>The Sentinel</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Cyber Security</p>
+                    <p class="text-muted p-desc">Audits smart contracts, checks code for vulnerabilities, and advises on privacy.</p>
+                    <div class="p-tags">
+                        <span>Security</span><span>Audit</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="tech">
+                    <div class="p-card-header"><i class="fa-solid fa-database p-icon-lg"></i></div>
+                    <h3>The Analyst</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Data Science</p>
+                    <p class="text-muted p-desc">Turns raw CSVs into actionable insights. Python Pandas and SQL expert.</p>
+                    <div class="p-tags">
+                        <span>Data</span><span>SQL</span>
+                    </div>
+                </div>
+
+                <!-- LIFESTYLE CARDS -->
+                <div class="persona-card" data-category="lifestyle">
+                    <div class="p-card-header"><i class="fa-solid fa-heart p-icon-lg"></i></div>
+                    <h3>The Guide</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Wellness Coach</p>
+                    <p class="text-muted p-desc">Helps manage stress, burnout, and personal relationships while building.</p>
+                    <div class="p-tags">
+                        <span>Mental Health</span><span>Balance</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="lifestyle">
+                    <div class="p-card-header"><i class="fa-solid fa-dumbbell p-icon-lg"></i></div>
+                    <h3>The Trainer</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Fitness Coach</p>
+                    <p class="text-muted p-desc">Creates workout plans and nutrition guides for peak performance.</p>
+                    <div class="p-tags">
+                        <span>Fitness</span><span>Diet</span>
+                    </div>
+                </div>
+
+                <div class="persona-card" data-category="lifestyle">
+                    <div class="p-card-header"><i class="fa-solid fa-plane p-icon-lg"></i></div>
+                    <h3>The Nomad</h3>
+                    <p class="text-neon uppercase mb-10" style="font-size:0.7rem;">Travel Planner</p>
+                    <p class="text-muted p-desc">Plans itineraries for digital nomads. Finds wifi cafes and cheap flights.</p>
+                    <div class="p-tags">
+                        <span>Travel</span><span>Logistics</span>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- POWER PAIRS SECTION -->
+        <section class="section-pad">
+            <div class="section-header text-center">
+                <h2 class="section-title">Power Pairs</h2>
+                <p class="text-muted">Combine personas to unlock advanced workflows.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card synergy-card">
+                    <div class="synergy-icons">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span class="plus">+</span>
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3>From Idea to MVP</h3>
+                    <p class="text-muted"><strong>The Visionary</strong> generates the app concept and features. <br><strong>The Architect</strong> writes the database schema and code structure.</p>
+                </div>
+
+                <div class="card synergy-card">
+                    <div class="synergy-icons">
+                        <i class="fa-solid fa-pen-fancy"></i>
+                        <span class="plus">+</span>
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>The Viral Launch</h3>
+                    <p class="text-muted"><strong>The Scribe</strong> writes the landing page copy. <br><strong>The Growth Hacker</strong> designs the traffic acquisition strategy.</p>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <div class="text-center" style="padding:30px; color:#555; font-size:0.9rem;">
                 &copy; 2025 Chat-GD Concepts. All rights reserved.
             </div>
         </footer>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateThemeIcon(true);
     }
     
-    // Initialize default persona
+    // Initialize default persona if on index page
     if(document.getElementById('persona-content')) {
         updatePersonaDisplay('sensei'); 
     }
@@ -69,31 +69,31 @@ accordions.forEach(acc => {
     });
 });
 
-// --- 4. DYNAMIC PERSONA SELECTOR ---
+// --- 4. DYNAMIC PERSONA SELECTOR (INDEX PAGE) ---
 const personas = {
     sensei: {
         icon: 'fa-user-astronaut',
         title: 'The Sensei',
         role: 'YOUR STRATEGIC MENTOR',
-        desc: '🧠 <strong>The Big Brain.</strong> I help you see the big picture. Use me for business planning, negotiation tactics, and building long-term career roadmaps. <br><br>♟️ <em>Business Planning</em> (Strategy) <br>🤝 <em>Negotiation Tactics</em> (The art of the deal) <br>🗺️ <em>Career Roadmaps</em> (Building your empire). <br><br>"I don\'t just give answers; I give strategy."'
+        desc: 'I help you see the big picture. Use me for business planning, negotiation tactics, and building long-term career roadmaps. <br><br>♟️ <em>Business Planning</em> (Strategy) <br>🤝 <em>Negotiation Tactics</em> (The art of the deal) <br>🗺️ <em>Career Roadmaps</em> (Building your empire). <br><br>"I don\'t just give answers; I give strategy."'
     },
     visionary: {
         icon: 'fa-lightbulb',
         title: 'The Visionary',
         role: 'YOUR CREATIVE MUSE',
-        desc: '🎨 <strong>The Spark.</strong> Stuck on an idea? I generate out-of-the-box concepts, write compelling marketing copy, and help you break design norms. <br><br>💡 <em>Wild Concepts</em> (Ideation) <br>✍️ <em>Killer Copy</em> (That actually sells) <br>🎭 <em>Viral Angles</em> (Marketing hooks). <br><br>"Let\'s make something they can\'t ignore."'
+        desc: 'Stuck on an idea? I generate out-of-the-box concepts, write compelling marketing copy, and help you break design norms. <br><br>💡 <em>Wild Concepts</em> (Ideation) <br>✍️ <em>Killer Copy</em> (That actually sells) <br>🎭 <em>Viral Angles</em> (Marketing hooks). <br><br>"Let\'s make something they can\'t ignore."'
     },
     architect: {
         icon: 'fa-code',
         title: 'The Architect',
         role: 'YOUR TECH EXPERT',
-        desc: '🏗️ <strong>The Builder.</strong> Scalability is my priority. Ask me to review your code, design a database schema, or explain complex technical concepts in simple terms. <br><br>💻 <em>Code Review</em> (Debug & Optimize) <br>🗄️ <em>System Design</em> (Schema Design) <br>🔧 <em>Tech Simplified</em> (For non-techies). <br><br>"I build systems that last."'
+        desc: 'Scalability is my priority. Ask me to review your code, design a database schema, or explain complex technical concepts in simple terms. <br><br>💻 <em>Code Review</em> (Debug & Optimize) <br>🗄️ <em>System Design</em> (Schema Design) <br>🔧 <em>Tech Simplified</em> (For non-techies). <br><br>"I build systems that last."'
     },
     guide: {
         icon: 'fa-heart',
         title: 'The Guide',
         role: 'YOUR WELLNESS COACH',
-        desc: '🧘 <strong>The Anchor.</strong> Mental clarity is my priority. Ask me for mindfulness strategies, resilience training, or work-life balance advice. <br><br>🌿 <em>Mindfulness</em> (Stress reduction) <br>🛡️ <em>Resilience</em> (Mental toughness) <br>⚖️ <em>Balance</em> (Sustainable growth). <br><br>"Success requires a clear mind."'
+        desc: 'Burnout kills dreams. I am here to help you manage stress, practice mindfulness, and navigate personal challenges while you build your empire. <br><br>🌿 <em>Mindfulness</em> (Stress reduction) <br>🛡️ <em>Resilience</em> (Mental toughness) <br>⚖️ <em>Balance</em> (Sustainable growth). <br><br>"Success requires balance."'
     }
 };
 
@@ -141,7 +141,29 @@ function updatePersonaDisplay(key) {
     }
 }
 
-// --- 5. MOBILE MENU TOGGLE ---
+// --- 5. PERSONA FILTERING (PERSONAS PAGE) ---
+function filterPersonas(category) {
+    const cards = document.querySelectorAll('.persona-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Toggle Button Active State
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if(event) event.currentTarget.classList.add('active');
+
+    cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+            // Trigger animation
+            card.style.animation = 'none';
+            card.offsetHeight; /* trigger reflow */
+            card.style.animation = 'fadeIn 0.5s';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// --- 6. MOBILE MENU TOGGLE ---
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
@@ -163,7 +185,7 @@ function closeMenu() {
     }
 }
 
-// --- 6. CONTACT FORM SIMULATION ---
+// --- 7. CONTACT FORM SIMULATION ---
 const contactForm = document.querySelector('form');
 if (contactForm) {
     const submitBtn = contactForm.querySelector('button');
@@ -194,12 +216,10 @@ if (contactForm) {
     });
 }
 
-// --- 7. INTELLIGENT AI CHAT LOGIC (HYBRID SYSTEM) ---
+// --- 8. INTELLIGENT AI CHAT LOGIC (RECOMMENDATION FLOW) ---
 
 const AI_CONFIG = {
-    // 1. Set to TRUE to use your Gemini Key
     USE_REAL_AI: true, 
-    // 2. Your Gemini Key
     GOOGLE_API_KEY: 'AIzaSyAS4op9mq77whTg_lZXPvrBEOxyYLBYCmc' 
 };
 
@@ -208,17 +228,156 @@ function toggleAIWidget() {
     const widget = document.getElementById('aiWidget');
     widget.classList.toggle('active');
     
-    if(widget.classList.contains('active')) {
-        setTimeout(() => document.getElementById('userInput').focus(), 300);
+    const chatBox = document.getElementById('chatMessages');
+    
+    // Check if chat is empty OR contains only whitespace (fix for "blank" issue)
+    if(widget.classList.contains('active') && (!chatBox.innerHTML || chatBox.innerHTML.trim() === "")) {
+        startChatFlow(); // Start the automated flow immediately
     }
 }
 
 document.querySelector('.chat-widget-trigger').onclick = toggleAIWidget;
 
-// Send Message Logic
-const inputField = document.getElementById('userInput');
-const chatBox = document.getElementById('chatMessages');
+// --- THE CONVERSATION FLOW ENGINE ---
+const chatFlow = {
+    start: {
+        text: "System Online. I am Chat-GD. To assign the perfect expert to you, tell me: <strong>What is your current focus?</strong>",
+        options: [
+            { label: "Business Strategy ♟️", next: "business" },
+            { label: "Creative & Design 🎨", next: "creative" },
+            { label: "Tech & Coding 💻", next: "tech" },
+            { label: "Personal Growth 🌿", next: "life" }
+        ]
+    },
+    business: {
+        text: "Understood. Strategy is key. What specifically do you need help with?",
+        options: [
+            { label: "Long-term Strategy", persona: "sensei" },
+            { label: "Managing Operations", persona: "executive" },
+            { label: "Closing Deals/Sales", persona: "closer" }
+        ]
+    },
+    creative: {
+        text: "Let's create something iconic. What's the blocker?",
+        options: [
+            { label: "Need New Ideas", persona: "visionary" },
+            { label: "Writing Copy/Ads", persona: "scribe" },
+            { label: "Visuals & UI", persona: "artist" }
+        ]
+    },
+    tech: {
+        text: "Systems and Code. Select your requirement:",
+        options: [
+            { label: "System Architecture", persona: "architect" },
+            { label: "Fixing Bugs", persona: "debugger" },
+            { label: "Smart Contracts", persona: "sentinel" }
+        ]
+    },
+    life: {
+        text: "Success requires balance. How can we support you?",
+        options: [
+            { label: "Mental Clarity", persona: "guide" },
+            { label: "Fitness/Health", persona: "trainer" },
+            { label: "Travel Planning", persona: "nomad" }
+        ]
+    }
+};
 
+const personaDetails = {
+    sensei: { name: "The Sensei", icon: "fa-user-astronaut", desc: "Your Strategic Mentor." },
+    executive: { name: "The Executive", icon: "fa-chess-queen", desc: "Operations Lead." },
+    closer: { name: "The Closer", icon: "fa-briefcase", desc: "Sales Expert." },
+    visionary: { name: "The Visionary", icon: "fa-lightbulb", desc: "Creative Muse." },
+    scribe: { name: "The Scribe", icon: "fa-pen-fancy", desc: "Copy Chief." },
+    artist: { name: "The Artist", icon: "fa-palette", desc: "Design Director." },
+    architect: { name: "The Architect", icon: "fa-code", desc: "Tech Expert." },
+    debugger: { name: "The Debugger", icon: "fa-bug", desc: "Code Fixer." },
+    sentinel: { name: "The Sentinel", icon: "fa-shield-halved", desc: "Cyber Security." },
+    guide: { name: "The Guide", icon: "fa-heart", desc: "Wellness Coach." },
+    trainer: { name: "The Trainer", icon: "fa-dumbbell", desc: "Fitness Coach." },
+    nomad: { name: "The Nomad", icon: "fa-plane", desc: "Travel Planner." }
+};
+
+function startChatFlow() {
+    document.getElementById('chatMessages').innerHTML = ''; // Ensure clean slate
+    const typingId = showTyping();
+    setTimeout(() => {
+        removeTyping(typingId);
+        showFlowStep('start');
+    }, 600); // Slight delay for realism
+}
+
+function showFlowStep(stepKey) {
+    const step = chatFlow[stepKey];
+    if(!step) return;
+    addMessage(step.text, 'ai');
+    addOptions(step.options);
+}
+
+function addOptions(options) {
+    const chatBox = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'chat-options-container';
+
+    options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-option-btn';
+        btn.innerHTML = opt.label;
+        btn.onclick = () => handleOptionClick(opt, div);
+        div.appendChild(btn);
+    });
+
+    chatBox.appendChild(div);
+    scrollToBottom();
+}
+
+function handleOptionClick(option, containerDiv) {
+    containerDiv.remove();
+    addMessage(option.label, 'user');
+    const typingId = showTyping();
+    scrollToBottom();
+
+    setTimeout(() => {
+        removeTyping(typingId);
+        if (option.next) {
+            showFlowStep(option.next);
+        } else if (option.persona) {
+            recommendPersona(option.persona);
+        }
+    }, 600);
+}
+
+function recommendPersona(personaKey) {
+    const p = personaDetails[personaKey];
+    const html = `
+        <div class="chat-recommendation">
+            <i class="fa-solid ${p.icon} rec-icon"></i>
+            <h4 style="margin-bottom:5px; color:white;">${p.name}</h4>
+            <p style="font-size:0.8rem; color:#aaa; margin-bottom:10px;">${p.desc}</p>
+            <div>I have assigned <strong>${p.name}</strong> to your dashboard.</div>
+            <button class="rec-btn" onclick="activatePersona('${personaKey}')">Start Chatting</button>
+        </div>
+    `;
+    const div = document.createElement('div');
+    div.className = 'message ai-msg';
+    div.innerHTML = `<div class="msg-content" style="background:transparent; border:none; padding:0;">${html}</div>`;
+    document.getElementById('chatMessages').appendChild(div);
+    scrollToBottom();
+}
+
+// --- UPDATED ACTIVATION LOGIC ---
+function activatePersona(key) {
+    // 1. Close the chat widget
+    toggleAIWidget();
+    
+    // 2. Scroll to the pricing section smoothly
+    const pricingSection = document.getElementById('pricing');
+    if(pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+const inputField = document.getElementById('userInput');
 inputField.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMessage();
 });
@@ -227,130 +386,18 @@ async function sendMessage() {
     const text = inputField.value.trim();
     if (!text) return;
 
-    // 1. Add User Message
     addMessage(text, 'user');
     inputField.value = '';
 
-    // 2. Show Typing Indicator
     const typingId = showTyping();
     scrollToBottom();
 
-    // 3. ATTEMPT REAL AI CONNECTION
-    if (AI_CONFIG.USE_REAL_AI) {
-        try {
-            const response = await fetchGeminiAI(text);
-            removeTyping(typingId);
-            
-            // Check for specific triggers in the AI's response (or user's intent)
-            handleCommandTriggers(text, response);
-            
-            addMessage(response, 'ai');
-        } catch (error) {
-            console.warn("AI Connection failed (CORS/Auth). Switching to Backup Logic.", error);
-            // SILENT FAILOVER: Run Mock AI instead of showing error
-            runMockFallback(text, typingId); 
-        }
-    } else {
-        runMockFallback(text, typingId);
-    }
-}
-
-// --- ACTION HANDLER: This makes the "Yes" button work ---
-function handleCommandTriggers(userText, aiText) {
-    const lowerUser = userText.toLowerCase();
-    
-    // If user says "Yes" to the portal question
-    if (lowerUser.includes('yes') || lowerUser.includes('sure') || lowerUser.includes('take me')) {
-        setTimeout(() => {
-            // Close widget on mobile so they can see the section
-            if(window.innerWidth < 768) toggleAIWidget();
-            
-            // Scroll to pricing
-            document.querySelector('#pricing').scrollIntoView({behavior: 'smooth'});
-        }, 1500); // Wait 1.5s after AI speaks to scroll
-    }
-}
-
-// Fallback Function (Mock AI)
-function runMockFallback(text, typingId) {
-    if(document.getElementById(typingId)) removeTyping(typingId);
-    
-    const newType = showTyping();
-    scrollToBottom();
-    
     setTimeout(() => {
-        removeTyping(newType);
-        const response = getMockResponse(text);
-        
-        // Check for redirects in Mock mode too
-        handleCommandTriggers(text, response);
-        
-        addMessage(response, 'ai');
-    }, 1000 + Math.random() * 500);
+        removeTyping(typingId);
+        addMessage("I analyze data better through the selection menu. Please use the options above or click 'Chat with GD' to restart the flow.", 'ai');
+    }, 1000);
 }
 
-// --- REAL AI FUNCTION (GOOGLE GEMINI 1.5 FLASH) ---
-async function fetchGeminiAI(userText) {
-    // Note: Using gemini-1.5-flash
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AI_CONFIG.GOOGLE_API_KEY}`;
-    
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            contents: [{
-                parts: [{ 
-                    text: `You are Chat-GD, a high-tech AI operating system for a SaaS platform. 
-                    Your tone is professional, slightly futuristic (Cyberpunk), and concise.
-                    
-                    CRITICAL INSTRUCTION: If the user asks to sign up, see the price, or go to the portal, 
-                    you MUST say: "Access code accepted. Initiating transfer to the Main Portal."
-                    
-                    User says: ${userText}` 
-                }]
-            }]
-        })
-    });
-    
-    if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
-    }
-
-    const data = await response.json();
-    
-    if(data.candidates && data.candidates[0].content.parts[0].text) {
-        return data.candidates[0].content.parts[0].text;
-    } else {
-        throw new Error("Invalid Data Structure");
-    }
-}
-
-// --- MOCK AI FUNCTION (ROBUST BACKUP) ---
-function getMockResponse(input) {
-    input = input.toLowerCase();
-    
-    // Redirect Logic
-    if (input.includes('yes') || input.includes('sure') || input.includes('ok')) {
-        return "Access code accepted. Initiating transfer to the **Main Portal**...";
-    }
-
-    // Sales Logic
-    if (input.includes('price') || input.includes('cost') || input.includes('plan')) {
-        return "Our **Pro Plan** is currently $8/mo (Limited Time). Shall I take you to the signup portal?";
-    }
-    // Greeting
-    if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
-        return "Systems Online. I am Chat-GD. I can assist with Business Strategy, Coding, or Content Creation. What is your directive?";
-    }
-    // Features
-    if (input.includes('persona') || input.includes('who')) {
-        return "We have 24 distinct personas. **The Sensei** for strategy, **The Architect** for code, and **The Visionary** for ideas. Which one do you require?";
-    }
-    // Default
-    return "I am analyzing that request... To give you the best answer, I recommend signing into the full <a href='#pricing' style='color:var(--neon); text-decoration:underline;'>Chat-GD Portal</a> for deep-dive analysis. Shall I take you there?";
-}
-
-// UI Helpers
 function addMessage(text, sender) {
     const div = document.createElement('div');
     div.className = `message ${sender}-msg`;
@@ -366,7 +413,7 @@ function addMessage(text, sender) {
         div.innerHTML = `<div class="msg-content">${formatText(text)}</div><div class="msg-time">${time}</div>`;
     }
     
-    chatBox.appendChild(div);
+    document.getElementById('chatMessages').appendChild(div);
     scrollToBottom();
 }
 
@@ -375,7 +422,7 @@ function showTyping() {
     div.className = 'message ai-msg typing-indicator';
     div.id = 'typing-' + Date.now();
     div.innerHTML = `<div class="msg-content"><div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
-    chatBox.appendChild(div);
+    document.getElementById('chatMessages').appendChild(div);
     return div.id;
 }
 
@@ -384,10 +431,12 @@ function removeTyping(id) {
     if(el) el.remove();
 }
 
-function scrollToBottom() { chatBox.scrollTop = chatBox.scrollHeight; }
+function scrollToBottom() { 
+    const chatBox = document.getElementById('chatMessages');
+    chatBox.scrollTop = chatBox.scrollHeight; 
+}
 
 function formatText(text) { 
     if(!text) return "";
-    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-               .replace(/\n/g, '<br>'); 
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'); 
 }
